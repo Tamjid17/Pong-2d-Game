@@ -11,6 +11,6 @@ public class DesktopLauncher {
 		config.setWindowedMode(800, 600);
 		config.setForegroundFPS(60);
 		config.setTitle("Ping-Pong");
-		new Lwjgl3Application(new Pong(), config);
+		new Lwjgl3Application(new MenuManager(), config);
 	}
 }
