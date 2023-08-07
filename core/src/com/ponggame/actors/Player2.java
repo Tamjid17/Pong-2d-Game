@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ponggame.Constants;
+import com.ponggame.Pong;
 
 public class Player2 {
     SpriteBatch batch;
@@ -30,8 +31,13 @@ public class Player2 {
             p2posY -= p2Speed;
     }
     public void render(){
-        control();
         batch.draw(p2Sprite, p2posX, p2posY);
+        if(!(Pong.paused())) {
+            control();
+        }
+        else{
+
+        }
     }
     public static float getWidth(){
         return p2Sprite.getWidth();

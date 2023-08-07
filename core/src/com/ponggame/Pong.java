@@ -10,6 +10,7 @@ import com.ponggame.actors.Player2;
 
 public class Pong implements Screen {
 	private Game game;
+	private static boolean isPaused = false;
 	SpriteBatch batch;
 	Texture img;
 	Ball ball;
@@ -61,11 +62,20 @@ public class Pong implements Screen {
 			// Transition back to the main menu screen
 			game.setScreen(new Menu(game));
 		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
+			isPaused = true;
+		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.R)) {
+			isPaused = false;
+		}
 	}
 
 	@Override
 	public void dispose () {
 		batch.dispose();
 		img.dispose();
+	}
+	public static boolean paused(){
+		return isPaused;
 	}
 }

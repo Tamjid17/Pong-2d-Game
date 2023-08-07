@@ -45,7 +45,7 @@ public class Menu implements Screen {
         batch.draw(menuTexture, 0, 0);
         batch.end();
 
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             // Transition to the game screen
             game.setScreen(new Pong(game));
         }

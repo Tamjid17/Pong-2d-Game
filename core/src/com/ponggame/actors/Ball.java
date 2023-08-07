@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.ponggame.Constants;
+import com.ponggame.Pong;
 
 public class Ball {
     SpriteBatch batch;
@@ -24,12 +25,18 @@ public class Ball {
         ballDirectionX = ballDirectionY = Constants.BALL_DIRECTION;
     }
     public void render(){
-        if(moving){
-            run();
+        if (moving) {
+            if((!Pong.paused())) {
+                run();
+            }
+            else{
+
+            }
             collision();
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             moving = true;
+        }
         batch.draw(ballSprite, ballPosX, ballPosY);
     }
     private void run(){
