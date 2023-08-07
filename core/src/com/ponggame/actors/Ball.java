@@ -17,8 +17,9 @@ public class Ball {
     Rectangle rectangleP2;
     Rectangle rectangleBall;
     Sound hit, cheer, whistle;
-    private float ballPosX = Constants.SCREEN_WIDTH/2;
-    private float ballPosY = Constants.SCREEN_HEIGHT/2;
+    public int cnt1 = 0, cnt2 = 0;
+    public float ballPosX = Constants.SCREEN_WIDTH/2;
+    public float ballPosY = Constants.SCREEN_HEIGHT/2;
     public float ballDirectionX, ballDirectionY;
      boolean moving = true;
     public Ball(SpriteBatch batch){
@@ -61,6 +62,7 @@ public class Ball {
         }
         if(ballPosX < 0) {
             Cheers();
+            cnt1++;
             moving = false;
             ballDirectionX = -ballDirectionX;
             ballPosY = Constants.SCREEN_HEIGHT/2f;
@@ -68,6 +70,7 @@ public class Ball {
         }
          if(ballPosX > Constants.SCREEN_WIDTH - ballSprite.getWidth()){
              Cheers();
+             cnt2++;
              moving = false;
              ballDirectionX = -ballDirectionX;
              ballPosY = Constants.SCREEN_HEIGHT/2f;
